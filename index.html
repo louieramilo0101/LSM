@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>My saved messages</title>
+<title>Saved Messages</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -106,10 +106,10 @@ function sp(){return el("span",{"class":"sp"})}
 /* ---------- LIST ---------- */
 function showList(){
   view="list";window.scrollTo(0,0);
-  setHead([el("span",{"class":"brand",text:"💜 My messages"}),sp(),el("button",{text:"Copy private link","aria-label":"Copy the private link to open these messages anywhere",onclick:function(){var l=shareLink();if(navigator.clipboard)navigator.clipboard.writeText(l).then(function(){toast("Link copied. Keep it private.")},function(){prompt("Copy this link",l)});else prompt("Copy this link",l)}}),themeBtn()]);
+  setHead([el("span",{"class":"brand",text:"Saved Messages"}),sp(),el("button",{text:"Copy private link","aria-label":"Copy the private link to open these messages anywhere",onclick:function(){var l=shareLink();if(navigator.clipboard)navigator.clipboard.writeText(l).then(function(){toast("Link copied. Keep it private.")},function(){prompt("Copy this link",l)});else prompt("Copy this link",l)}}),themeBtn()]);
   app.textContent="";
-  app.appendChild(el("h1",{text:"Messages from my love"}));
-  app.appendChild(el("p",{"class":"sub",text:"Everything he’s written to me, saved in one place."}));
+  app.appendChild(el("h1",{text:"Your messages"}));
+  app.appendChild(el("p",{"class":"sub",text:"Save, read, and organize your messages in one place."}));
   app.appendChild(el("button",{"class":"main",text:"+ Add a message",onclick:function(){showForm()}}));
   if(msgs.length||!loaded){
     var s=el("input",{type:"search",placeholder:"Search your messages",value:query,"aria-label":"Search messages",style:"margin-top:16px"});
@@ -203,7 +203,7 @@ function showRead(id){
 
 addEventListener("scroll",function(){var max=document.documentElement.scrollHeight-innerHeight;document.getElementById("bar").style.width=(max>0?scrollY/max*100:0)+"%"},{passive:true});
 function showSetup(title,lines,btn){
-  view="setup";setHead([el("span",{"class":"brand",text:"💜 My messages"}),sp(),themeBtn()]);app.textContent="";
+  view="setup";setHead([el("span",{"class":"brand",text:"Saved Messages"}),sp(),themeBtn()]);app.textContent="";
   app.appendChild(el("h1",{text:title}));
   lines.forEach(function(l){app.appendChild(el("p",{"class":"sub",text:l}))});
   if(btn)app.appendChild(btn);
